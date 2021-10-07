@@ -1,18 +1,25 @@
 <h1>Books</h1>
 
-<h5><div class="title">Title</div>
-  <div class="body">Body</div></h5>
+<% @books.each do |book| %>
+<div class="index">
+  <p class="title">Title</p>
+    <span><%= book.title %></span>
+  <p class="body">Body</p>
+    <span><%= book.body %></span>
+</div>
+<% end %>
 
+
+  <!--新規投稿-->
 <h3>
   <div class="newbook">New book</div>
 </h3>
 
-
-  <!--新規投稿-->
-  <%= form_with model:@book,url:'books',local:true do |f| %>
+<%= form_with model:@book,url:'books',local:true do |f| %>
     <div class="title_new">Title</div>
     <%= f.text_field :title %>
     <div class="body_new">Body</div>
-    <%= f.text_area :title %>
+    <%= f.text_area :body %>
+    
     <%= f.submit 'Create Book' %>
-  <% end %>
+<% end %>
