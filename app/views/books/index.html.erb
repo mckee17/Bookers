@@ -1,10 +1,18 @@
 <h1>Books</h1>
 
-<h2>
-  <div class="title">Title</div>
-  <div class="body">Body</div>
-</h2>
+<h5><div class="title">Title</div>
+  <div class="body">Body</div></h5>
 
 <h3>
   <div class="newbook">New book</div>
 </h3>
+
+
+  <!--新規投稿-->
+  <%= form_with model:@book,url:'books',local:true do |f| %>
+    <div class="title_new">Title</div>
+    <%= f.text_field :title %>
+    <div class="body_new">Body</div>
+    <%= f.text_area :title %>
+    <%= f.submit 'Create Book' %>
+  <% end %>
