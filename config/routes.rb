@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   post 'books' => 'books#create'
   get 'books/:id' => 'books#show',as:'SHOW'
   get 'books/:id/edit' => 'books#edit',as:'EDIT'
+  patch 'books/:id' => 'books#update',as:'UPDATE'
+  delete 'books/:id' => 'books#destroy',as:'DELETE'
 end

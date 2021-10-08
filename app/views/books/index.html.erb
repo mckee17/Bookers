@@ -1,14 +1,30 @@
 <h1>Books</h1>
 
-<% @books.each do |book| %>
-<div class="index">
-  <p class="title">Title</p>
-    <span><%= book.title %></span>
-  <p class="body">Body</p>
-    <span><%= book.body %></span>
-</div>
-<% end %>
 
+<% @books.each do |book| %>
+
+  <!--index-->
+  <div class="index">
+    <p class="title">Title</p>
+      <span><%= book.title %></span>
+    <p class="body">Body</p>
+      <span><%= book.body %></span>
+  </div>
+
+  <!--コマンド-->
+  <div class="command">
+    <div class="show">
+      <%= link_to "Show",SHOW_path(book.id) %>
+    </div>
+    <div class="edit">
+      <%= link_to "Edit",EDIT_path(book.id) %>
+    </div>
+    <div class="destroy">
+      <%= link_to "Destroy",DELETE_path(book.id) %>
+    </div>
+  </div>
+
+<% end %>
 
   <!--新規投稿-->
 <h3>
@@ -20,6 +36,6 @@
     <%= f.text_field :title %>
     <div class="body_new">Body</div>
     <%= f.text_area :body %>
-    
+
     <%= f.submit 'Create Book' %>
 <% end %>
