@@ -1,6 +1,6 @@
 <h2>Editing Book</h2>
 
-<%= form_with model:@book,url:'EDIT_path',local:true do |f| %>
+<%= form_with model:@book,url:"/books/#{@book.id}",local:true do |f| %>
     <div class="title_new">Title</div>
     <%= f.text_field :title %>
     <div class="body_new">Body</div>

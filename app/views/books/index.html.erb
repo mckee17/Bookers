@@ -31,7 +31,7 @@
   <div class="newbook">New book</div>
 </h3>
 
-<%= form_with model:@book,url:'books',local:true do |f| %>
+<%= form_with model:@book,url:"/books",local:true do |f| %>
     <div class="title_new">Title</div>
     <%= f.text_field :title %>
     <div class="body_new">Body</div>
