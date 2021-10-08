@@ -1,6 +1,5 @@
 <h1>Books</h1>
 
-
 <% @books.each do |book| %>
 
   <!--index-->
@@ -26,11 +25,26 @@
 
 <% end %>
 
-  <!--新規投稿-->
+<!--新規投稿-->
 <h3>
   <div class="newbook">New book</div>
 </h3>
 
+  <!--エラー時-->
+<div class="errors">
+  <% if @book.errors.any? %>
+    <p class="errors_title">
+      <%= @book.errors.count %> errors prohibited this book from being saved:
+    </p>
+    <p class="errors_body">
+      <% @book.errors.full_messages.each do |message| %>
+      <%= message %>
+      <% end %>
+    </p>
+  <% end %>
+</div>
+
+  <!--フォーム-->
 <%= form_with model:@book,url:"/books",local:true do |f| %>
     <div class="title_new">Title</div>
     <%= f.text_field :title %>
