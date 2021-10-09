@@ -1,8 +1,8 @@
-<h1>Books</h1>
-
 <p class="notice"><%= notice %></p>
 
-<% @books.each do |book| %>
+<h1>Books</h1>
+
+
 <table class="tabel">
   <thead>
     <tr>
@@ -10,7 +10,7 @@
       <th class="body">Body</th>
     </tr>
   </thead>
-
+ <% @books.each do |book| %>
   <tbody>
     <tr>
       <td><%= book.title %></td>
@@ -26,34 +26,36 @@
       </td>
     </tr>
   </tbody>
+ <% end %>
 </table>
-<% end %>
+
 
 <!--新規投稿-->
-<h3>
+<h2>
   <div class="newbook">New book</div>
-</h3>
+</h2>
 
   <!--エラー時-->
-<div class="errors">
-  <% if @book.errors.any? %>
+<% if @book.errors.any? %>
+  <div class="errors">
     <p class="errors_title">
       <%= @book.errors.count %> errors prohibited this book from being saved:
     </p>
-    <p class="errors_body">
+    <ul class="errors_body">
       <% @book.errors.full_messages.each do |message| %>
-      <%= message %>
+      <li><%= message %></li>
       <% end %>
-    </p>
-  <% end %>
-</div>
+    </ul>
+  </div>
+<% end %>
 
-  <!--フォーム-->
+
+  <!--フォーム/#エラー箇所表記未実装-->
 <%= form_with model:@book,url:"/books",local:true do |f| %>
     <div class="title_new">Title</div>
     <%= f.text_field :title %>
     <div class="body_new">Body</div>
     <%= f.text_area :body %>
-
-    <%= f.submit 'Create Book' %>
+    <div class="create_new">
+    <%= f.submit 'Create Book' %></div>
 <% end %>
