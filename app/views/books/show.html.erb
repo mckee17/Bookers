@@ -1,14 +1,14 @@
 <p class="notice"><%= notice %></p>
 
-<div class="title_show">Title</div>
-    <p><%= @book.title %></p>
-<div class="body_show">Body</div>
-    <p><%= @book.body %></p>
-
-<div class="edit_show">
-    <%= link_to "Edit",edit_book_path(@book.id) %>
+<div class="title_show">
+    <strong>Title:</strong>
+    <span> <%= @book.title %></span>
+</div>
+<div class="body_show">
+    <strong>Body:</strong>
+    <span> <%= @book.body %></span>
 </div>
 
-<div class="back_show">
-    <%= link_to "Back",books_path %>
+<div class="link">
+    <%= link_to "Edit",edit_book_path(@book.id) %> | <%= link_to "Back",books_path %>
 </div>
